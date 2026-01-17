@@ -1,0 +1,20 @@
+# Arquivos gerados pelo Visual Studio (Builds)
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Configurações do usuário do Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Arquivos de configurações do VS Code (se estiver usando)
+.vscode/
+
+# Outros
+*.pidb
+*.svclog
+*.scc
