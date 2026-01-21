@@ -2,8 +2,8 @@ namespace Calculadora.Core.Interfaces
 {
   public interface ICalculadoraValidator
   {
-    bool ValidarDivisor(double divisor);
-    bool ValidarNumero(double numero);
-    bool ValidarOperacao(double a, double b, string operacao);
+    void ValidarDivisor(double divisor);
+    void ValidarNumero(double numero);
+    void ValidarOperacao(double a, double b, string operacao);
   }
 }

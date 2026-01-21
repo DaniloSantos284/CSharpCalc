@@ -5,26 +5,25 @@ namespace Calculadora.Core.Services
 {
   public class CalculadoraValidator : ICalculadoraValidator
   {
-    public bool ValidarDivisor(double divisor)
+    public void ValidarDivisor(double divisor)
     {
       if (divisor == 0)
       {
         throw new DivisaoPorZeroException();
       }
-      return true;
     }
 
-    public bool ValidarNumero(double numero)
+    public void ValidarNumero(double numero)
     {
       // Valida se não é NaN ou infinito
       if (double.IsNaN(numero) || double.IsInfinity(numero))
       {
         throw new ArgumentException($"Número inválido: {numero}");
       }
-      return true;
+
     }
 
-    public bool ValidarOperacao(double a, double b, string operacao)
+    public void ValidarOperacao(double a, double b, string operacao)
     {
       ValidarNumero(a);
       ValidarNumero(b);
@@ -33,7 +32,12 @@ namespace Calculadora.Core.Services
       {
         ValidarDivisor(b);
       }
-      return true;
+
+      // Valida limites razoáveis para evitar overflow
+      if (operacao == "*" && (Math.Abs(a) > 1e100 || Math.Abs(b) > 1e100))
+      {
+        throw new OverflowException($"Multiplicação pode causar overflow: {a} * {b}");
+      }
     }
   }
 }

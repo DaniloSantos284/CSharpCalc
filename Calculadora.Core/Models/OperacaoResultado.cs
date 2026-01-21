@@ -2,27 +2,27 @@ namespace Calculadora.Core.Models
 {
   public class OperacaoResultado
   {
-    public double Valor { get; }
     public bool Sucesso { get; }
+    public double Valor { get; }
     public string MensagemErro { get; }
-    public DateTime DataOperacao { get; }
+    public DateTime DataHora { get; }
 
     // Construtor para operação bem-sucedida
     public OperacaoResultado(double valor)
     {
-      Valor = valor;
       Sucesso = true;
+      Valor = valor;
       MensagemErro = string.Empty;
-      DataOperacao = DateTime.Now;
+      DataHora = DateTime.Now;
     }
 
     // Construtor para operação com erro
-    public OperacaoResultado(string mensagemErro)
+    public OperacaoResultado(string erro)
     {
-      Valor = 0;
       Sucesso = false;
-      MensagemErro = mensagemErro;
-      DataOperacao = DateTime.Now;
+      Valor = 0;
+      MensagemErro = erro;
+      DataHora = DateTime.Now;
     }
   }
 }
